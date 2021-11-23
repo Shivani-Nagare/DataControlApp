@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataControl_Project", "DataControl_Project\DataControl_Project.csproj", "{AD493427-3C9D-46BA-94D9-563E0B17EFCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD493427-3C9D-46BA-94D9-563E0B17EFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD493427-3C9D-46BA-94D9-563E0B17EFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD493427-3C9D-46BA-94D9-563E0B17EFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD493427-3C9D-46BA-94D9-563E0B17EFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F805C0A-C098-4450-9754-0B32FD1BC8F8}
+	EndGlobalSection
+EndGlobal

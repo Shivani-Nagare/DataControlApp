@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataControlDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblDep">
+    <Key>
+      <PropertyRef Name="DeptId" />
+    </Key>
+    <Property Name="DeptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DeptDescription" Type="varchar" MaxLength="250" />
+    <Property Name="DeptLocation" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEmp1">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmpJob" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmpSal" Type="money" Nullable="false" />
+    <Property Name="EmpJoinDate" Type="datetime" Nullable="false" />
+    <Property Name="DeptId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK__tblEmp1__DeptId__2D27B809">
+    <End Role="tblDep" Type="Self.tblDep" Multiplicity="1" />
+    <End Role="tblEmp1" Type="Self.tblEmp1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDep">
+        <PropertyRef Name="DeptId" />
+      </Principal>
+      <Dependent Role="tblEmp1">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataControlDBModelStoreContainer">
+    <EntitySet Name="tblDep" EntityType="Self.tblDep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmp1" EntityType="Self.tblEmp1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLocation" EntityType="Self.tblLocation" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblEmp1__DeptId__2D27B809" Association="Self.FK__tblEmp1__DeptId__2D27B809">
+      <End Role="tblDep" EntitySet="tblDep" />
+      <End Role="tblEmp1" EntitySet="tblEmp1" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

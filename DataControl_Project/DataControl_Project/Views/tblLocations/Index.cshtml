@@ -1,0 +1,88 @@
+﻿@model IEnumerable<DataControl_Project.Models.tblLocation>
+
+@{
+    ViewBag.Title = "Index";
+    var grid = new WebGrid(source: Model, rowsPerPage: 10);
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2></h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#chkboxheader").click(function () {
+            if ($(this).is(":checked")) {
+                $(".ckbox").prop("checked", true)
+            }
+            else {
+                $(".ckbox").prop("checked", false)
+            }
+        });
+    });
+</script>
+<style>
+    .container {
+        font-family: 'Comic Sans MS';
+    }
+</style>
+
+<p>
+    @using (Html.BeginForm("Index", "tblLocations", FormMethod.Get))
+    {
+        <h3 style="background-color:bisque">Manage Location</h3>
+        <br />
+        <br />
+
+    <p>
+        <input type="button" class="btn btn-success" value="Add New" onclick="location.href='@Url.Action("Create", "tblLocations")'" />
+    </p>
+
+    
+    <b>Search Loaction:</b> @Html.RadioButton("searchBy", "Name", true)
+    @Html.TextBox("search")
+    <input type="submit" value="Search" class="btn btn-primary" />
+}
+
+<br />
+    <div class="container">
+        @using (Html.BeginForm("DeleteSelected", "tblLocations", FormMethod.Post))
+        {
+
+
+            @MvcHtmlString.Create(grid.GetHtml(
+                    tableStyle: "table table-bordered table-striped", htmlAttributes: new { id = "grid" },
+                    columns: new[] {
+
+                            grid.Column(header:"{chkboxheader}",format:@<text><input type="checkbox" id="chk1" name="empids" class="ckbox" value="@item.LocationId" /></text>),
+
+                    grid.Column("Locationname", "LocationName"),
+                    grid.Column("Isactive", "IsActive"),
+
+
+                    grid.Column(header: "Edit", format:@<a href="/tblLocations/Edit/@item.LocationId" class="btn btn-success">Edit</a>),
+                    grid.Column(header: "Details", format:@<a href="/tblLocations/Details/@item.LocationId" class="btn btn-success">Details</a>),
+                    grid.Column(header: "Delete", format:@<a href="/tblLocations/Delete/@item.LocationId" class="btn btn-danger">Delete</a>)
+                    }).ToString().Replace("{chkboxheader}", "<input type='checkbox' id='chkboxheader'/>"))
+
+            <input type="submit" value="Delete Selected Records" class="btn btn-danger" />
+            <br />
+        }
+        <br />
+        <input type="button" class="btn btn-primary" value="Go To Department Management system" onclick="location.href='@Url.Action("Index", "tblDeps")'" />
+
+        @*<input type="submit" value="Delete Selected" />*@
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

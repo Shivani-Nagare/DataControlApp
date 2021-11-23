@@ -1,0 +1,106 @@
+﻿@model DataControl_Project.Models.tbl_UserLogin
+@{
+    Layout = null;
+    Layout = "";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+
+        body {
+            background-image: url('../../Properties/img.jpeg');
+        }
+
+        #login-div {
+            position: absolute;
+            left: 35%;
+            top: 30%;
+            border: 1px solid #ccc;
+            padding: 30px;
+            background-color: antiquewhite;
+            border-radius: 10px;
+        }
+
+        #op {
+            opacity: 0.6;
+            padding: 50px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+        <div id="op">
+
+
+            @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+
+                        <td style="text-decoration: underline;padding-top:1px; font-size: 40px; font-family: 'Berlin Sans FB' ">Login</td>
+
+                    </tr>
+                    <tr>
+                        <td><br /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:'Berlin Sans FB';font-size:larger; padding-right:20px;>
+                            @Html.LabelFor(Mode => Model.UserName)
+
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.UserName)
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        
+                        <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+
+                    </tr>
+                    <tr>
+                        <td> </td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-family:'Berlin Sans FB';font-size:larger; padding-right:20px;>
+                            @Html.LabelFor(Mode => Model.Password)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Password)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                    </tr>
+
+                    <td></td>
+                    <td>
+                        <input type="submit" name="name" value="Login" style="background-color:#7ac8df; color:black; font-family: 'Lucida Console'; padding: 10px; " />
+
+                        <input type="reset" name="name" value="clear" style="background-color:#7ac8df; color:black; font-family: 'Lucida Console'; padding: 10px; " />
+                    </td>
+                </table>
+            }
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+

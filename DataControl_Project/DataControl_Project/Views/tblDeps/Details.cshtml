@@ -1,0 +1,50 @@
+﻿@model DataControl_Project.Models.tblDep
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblDep</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeptName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeptName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeptDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeptDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeptLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeptLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeptId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

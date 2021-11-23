@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataControlDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblDep">
+    <Key>
+      <PropertyRef Name="DeptId" />
+    </Key>
+    <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DeptLocation" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblEmp1" Relationship="Self.FK__tblEmp1__DeptId__2D27B809" FromRole="tblDep" ToRole="tblEmp1" />
+  </EntityType>
+  <EntityType Name="tblEmp1">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpJob" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpSal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="EmpJoinDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeptId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblDep" Relationship="Self.FK__tblEmp1__DeptId__2D27B809" FromRole="tblEmp1" ToRole="tblDep" />
+  </EntityType>
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK__tblEmp1__DeptId__2D27B809">
+    <End Role="tblDep" Type="Self.tblDep" Multiplicity="1" />
+    <End Role="tblEmp1" Type="Self.tblEmp1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDep">
+        <PropertyRef Name="DeptId" />
+      </Principal>
+      <Dependent Role="tblEmp1">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataControlDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblDeps" EntityType="Self.tblDep" />
+    <EntitySet Name="tblEmp1" EntityType="Self.tblEmp1" />
+    <EntitySet Name="tblLocations" EntityType="Self.tblLocation" />
+    <AssociationSet Name="FK__tblEmp1__DeptId__2D27B809" Association="Self.FK__tblEmp1__DeptId__2D27B809">
+      <End Role="tblDep" EntitySet="tblDeps" />
+      <End Role="tblEmp1" EntitySet="tblEmp1" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

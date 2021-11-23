@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataControlDBModelStoreContainer" CdmEntityContainer="DataControlDBEntities1">
+    <EntitySetMapping Name="tblDeps">
+      <EntityTypeMapping TypeName="DataControlDBModel.tblDep">
+        <MappingFragment StoreEntitySet="tblDep">
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptDescription" ColumnName="DeptDescription" />
+          <ScalarProperty Name="DeptLocation" ColumnName="DeptLocation" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmp1">
+      <EntityTypeMapping TypeName="DataControlDBModel.tblEmp1">
+        <MappingFragment StoreEntitySet="tblEmp1">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="EmpJob" ColumnName="EmpJob" />
+          <ScalarProperty Name="EmpSal" ColumnName="EmpSal" />
+          <ScalarProperty Name="EmpJoinDate" ColumnName="EmpJoinDate" />
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLocations">
+      <EntityTypeMapping TypeName="DataControlDBModel.tblLocation">
+        <MappingFragment StoreEntitySet="tblLocation">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
